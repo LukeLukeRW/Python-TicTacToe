@@ -12,10 +12,6 @@ def main(board,player,turn):
                     for i in board:
                         print(" ".join(i)) 
 
-                    if turn == 1:
-                        turn = 0
-                    else:
-                        turn = 1
                 else:
                     print('enter a valid row and colum')
                     print_board(board)
@@ -24,18 +20,23 @@ def main(board,player,turn):
                         print("Draw!!!!")
                         break
 
-                    elif win(board) is True:
-                        print(f"Player: {player[turn-1]} has won :)")
+                    elif win(board):
+                        print(f"Player: {player[turn]} has won :)")
                         break
 
                 except:
-                    print(f"Player: {player[turn+1]} has won :)")
+                    print(f"Player: {player[turn]} has won :)")
+
+                if turn == 1:
+                    turn = 0
+                else:
+                    turn = 1
 
             except IndexError:
                 print('Please Enter A Valid Row/Column :)')
                 print_board(board)
             except ValueError:
-                print("Please Enter FUCKING numb3r")
+                print("Please Enter numb3r")
                 print_board(board)
 
         if play_again():
@@ -92,4 +93,5 @@ if __name__ == '__main__':
              ['-','-','-']]
     player = ["X","O"]
     turn = 0
+    print_board(board)
     main(board,player,turn)
