@@ -74,7 +74,7 @@ def play_again():
             print('gg')
             pass
 def win(board):
-    #copied :P
+    #sh+
     for row in board:#row
         if all(cell == row[0] and cell != '-' for cell in row):
             return True
